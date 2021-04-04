@@ -37,11 +37,10 @@ app.get('/posts/new', (req, res) => {
   res.render('create');
 });
 
-app.post('/posts/store', (req, res) => {
+app.post('/posts/store', async (req, res) => {
   // model creaates a new doc with browser data
-  BlogPost.create(req.body, (error, blogpost) => {
-    res.redirect('/');
-  });
+  await BlogPost.create(req.body);
+  res.redirect('/');
 });
 
 app.listen(4000, () => {
