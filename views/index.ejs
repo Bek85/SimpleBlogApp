@@ -31,8 +31,8 @@
             </a>
             <p class="post-meta">
               Posted by
-              <a href="/post/<%= blogposts[i]._id %>">Start Bootstrap</a>
-              on September 24, 2019
+              <a href="#"><%= blogposts[i].username %></a>
+              on <%= blogposts[i].datePosted.toDateString() %>
             </p>
           </div>
           <hr />
