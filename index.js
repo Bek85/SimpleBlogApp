@@ -17,8 +17,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', async (req, res) => {
+  const blogposts = await BlogPost.find({});
+  res.render('index', {
+    blogposts,
+  });
+  console.log(blogposts);
 });
 
 app.get('/about', (req, res) => {
